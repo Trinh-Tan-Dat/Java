@@ -1,53 +1,58 @@
-package practice;
+package B2;
 
 import java.util.Scanner;
 
 public class main {
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
-        managerOfficer managerOfficers = new managerOfficer();
+        MangeDocuments mangeDocuments = new MangeDocuments();
         while(true){
-            System.out.println("Application Manager Officer");
-            System.out.println("1. To insert officer");
-            System.out.println("2. To search officer by name");
-            System.out.println("3. To show list");
-            System.out.println("4. Exit");
-            String line = scanner.nextLine();
-            switch(line){
+            System.out.println("1. Add");
+            System.out.println("2. Delete");
+            System.out.println("3. Show");
+            System.out.println("4. Search");
+            System.out.println("5. Exit");
+
+            String choose = scanner.nextLine();
+            switch(choose){
                 case "1":
-                    System.out.println("1. To insert Engineer");
-                    System.out.println("2. To insert Staff");
-                    System.out.println("3. To insert Worker");
-                    String temp = scanner.nextLine();
-                    switch(temp){
+                    System.out.println("1. Book");
+                    System.out.println("2. Magazine");
+                    System.out.println("3. Newpapers");
+                    choose=scanner.nextLine();
+                    switch (choose) {
                         case "1":
-                            System.out.println("Enter name: ");
-                            String name = scanner.nextLine();
-                            System.out.println("Enter age: ");
-                            int age = scanner.nextInt();
-                            System.out.println("Enter gender");
-                            String gender = scanner.nextLine();
-                            System.out.println("Enter address");
-                            String address = scanner.nextLine();
-                            System.out.println("Enter branch");
-                            String branch = scanner.nextLine();
-                            officer engineers = new engineer(name, age, gender, address, branch);
-                            managerOfficers.addOfficer(engineers);
-                            System.out.println(engineers.toString());
+                            System.out.print("Enter ID: ");
+                            int id = scanner.nextInt();
+                            System.out.print("Enter nxb:");
+                            String nxb = scanner.nextLine();
+                            System.out.print("Enter number: ");
+                            int number = scanner.nextInt();
+                            System.out.print("Enter author: ");
+                            scanner.nextLine();
+                            String author = scanner.nextLine();
+                            System.out.print("Enter page number: ");
+                            String pageNumber = scanner.nextLine();
+                            Documents book = new Books(id, author, number, nxb, pageNumber);
+                            mangeDocuments.addDocuments(book);
                             break;
+                        
+                        case "2":
+                            
+
+                            break;
+
+                        case "3":
+                            break;
+
+                        
                     }
                     break;
                 case "2":
-                    System.out.println("Enter name to search: ");
-                    String name = scanner.nextLine();
+                     
                     break;
-                case "3":
-                    managerOfficers.showListInforOfficer();
-                    break;
-                case "4":
-                    return;
             }
         }
     }
-    
+
 }
